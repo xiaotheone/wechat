@@ -1,0 +1,25 @@
+{
+  "name": "wechat_app",
+  "version": "1.0.0",
+  "description": "creating a public wechat account",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "coding",
+    "is",
+    "fun"
+  ],
+  "author": "xiao zhang",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "koa": "^2.4.1",
+    "koe": "^1.1.0",
+    "path": "^0.12.7",
+    "raw-body": "^2.3.2",
+    "request": "^2.83.0",
+    "sha1": "^1.1.1"
+  }
+}
