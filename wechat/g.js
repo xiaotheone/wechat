@@ -19,7 +19,6 @@ function Wechat(opts){
    
     this.getAccessToken()
      .then(function(data){
-      
          try{
          data = JSON.parse(data)
          }
@@ -32,6 +31,7 @@ function Wechat(opts){
          else{
              return that.updataAccessToken()
          }
+         return data
      })
      .then(function(data){
          that.access_token = data.access_token
