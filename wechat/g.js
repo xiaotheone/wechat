@@ -4,7 +4,6 @@
 var sha1 = require('sha1')
 var getRawBody = require('raw-body')
 var outh = require('./wechat')
-console.log(outh)
 module.exports = function(opts){
 var wechat_data = new outh (opts)
 
@@ -36,6 +35,7 @@ else if (this.method ==='POST'){
         encoding:this.charset
     })
     console.log(data.toString())
+    console.log("test from mac")
 }
 }
 }
