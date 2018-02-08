@@ -4,10 +4,12 @@
 var sha1 = require('sha1')
 var getRawBody = require('raw-body')
 var outh = require('./wechat')
+var util = require('./util')
 module.exports = function(opts){
 var wechat_data = new outh (opts)
 
 return function *(next){
+    var that = this
     console.log(this.query)
     var token = opts.token
     var signature = this.query.signature
@@ -34,7 +36,10 @@ else if (this.method ==='POST'){
         limit:'1mb',
         encoding:this.charset
     })
-    console.log(data.toString())
+ var content = yield util.parseXMLAsync(data)
+   var message = util.formatMessage(content.xml)    
+   console.log(message)
+ 
 }
 }
 }
