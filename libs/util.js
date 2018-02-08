@@ -3,6 +3,7 @@
 var fs = require('fs')
 var Promise = require('bluebird')
 
+
 exports.readFileAsync = function(fpath,encodnig){
     return new Promise(function(resolve,reject){
 

@@ -3,10 +3,10 @@
 'use strict'
 var sha1 = require('sha1')
 var getRawBody = require('raw-body')
-var outh = require('./wechat')
+var wechat = require('./wechat')
 var util = require('./util')
 module.exports = function(opts){
-var wechat_data = new outh (opts)
+var wechat_data = new wechat (opts)
 
 return function *(next){
     var that = this
@@ -39,6 +39,22 @@ else if (this.method ==='POST'){
  var content = yield util.parseXMLAsync(data)
    var message = util.formatMessage(content.xml)    
    console.log(message)
+     
+    if(message.MsgType ==='event'){
+        if(message.Event ==='subscribe'){
+            var now = new Date().getTime()
+            that.status = 200
+            that.type = 'application/xml'
+            that.body = '<xml>'+
+            '<ToUserName><![CDATA['+message.FromUserName+']]></ToUserName>'+
+            '<FromUserName><![CDATA['+message.ToUserName+']]></FromUserName>'+
+            '<CreateTime>'+now+'</CreateTime>'+
+            '<MsgType><![CDATA[text]]></MsgType>'+
+            '<Content><![CDATA[Hi,欢迎订阅我的公众号]]></Content>'+
+            '</xml>'
+        return
+        }
+    }
  
 }
 }
