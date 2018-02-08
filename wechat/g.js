@@ -52,7 +52,7 @@ else if (this.method ==='POST'){
             '<MsgType><![CDATA[text]]></MsgType>'+
             '<Content><![CDATA[Hi,欢迎订阅我的公众号]]></Content>'+
             '</xml>'
-        
+        return
         }
     }
 }
