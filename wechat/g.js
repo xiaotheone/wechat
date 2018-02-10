@@ -39,22 +39,11 @@ else if (this.method ==='POST'){
  var content = yield util.parseXMLAsync(data)
    var message = util.formatMessage(content.xml)    
    console.log(message)
-     
-    if(message.MsgType ==='event'){
-        if(message.Event ==='subscribe'){
-            var now = new Date().getTime()
-            that.status = 200
-            that.type = 'application/xml'
-            that.body = '<xml>'+
-            '<ToUserName><![CDATA['+message.FromUserName+']]></ToUserName>'+
-            '<FromUserName><![CDATA['+message.ToUserName+']]></FromUserName>'+
-            '<CreateTime>'+now+'</CreateTime>'+
-            '<MsgType><![CDATA[text]]></MsgType>'+
-            '<Content><![CDATA[Hi,欢迎订阅我的公众号]]></Content>'+
-            '</xml>'
-        
-        }
-    }
+    
+    // this.weixin = message
+    // yield handler.call(this,next)
+    // wechat.reply.call(this)
+   
 }
 }
 }

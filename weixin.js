@@ -15,6 +15,9 @@ if(message.MsgType ==='event'){
         this.body = ''
     }
 }
-
+if(message.MsgType ==='text'){
+        
+        this.body = '您输入了'+message.content
+}
 
 }

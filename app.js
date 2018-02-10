@@ -5,7 +5,7 @@ var config = require('./config')
 var weixin = require('./weixin')
 
 var app = new Koa()
-app.use(wechat(config.wechat,weixin.reply))
+app.use(wechat(config.wechat))
 
 
 app.listen(1234)

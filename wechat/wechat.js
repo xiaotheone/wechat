@@ -50,15 +50,15 @@ function Wechat(opts){
    return false
    }
    }
-//    Wechat.prototype.replay = function(){
-//        var content = this.body
-//        var message = this.weixin
+   Wechat.prototype.reply = function(){
+       var content = this.body
+       var message = this.weixin
 
-//        var xml = util.tpl(content,message)
-//        this.status = 200
-//        this.type = 'application/xml'
-//        this.body = xml
-//    }
+       var xml = util.tpl(content,message)
+       this.status = 200
+       this.type = 'application/xml'
+       this.body = xml
+   }
    
    Wechat.prototype.updataAccessToken = function(){
        var appID = this.appID
