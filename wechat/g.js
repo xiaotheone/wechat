@@ -55,6 +55,15 @@ else if (this.method ==='POST'){
         return
         }
     }
+    else if(message.MsgType ==='event')
+    if(message.Event ==='unsubscribe'){
+        var now = new Date().getTime()
+        that.status = 404
+        that.type = 'application/xml'
+        that.body = ''
+        console.log("无情取关")
+    return
+    }
 }
 }
 }
