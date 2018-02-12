@@ -14,10 +14,39 @@ if(message.MsgType ==='event'){
         console.log('无情取消')
         this.body = ''
     }
+    else if (message.Event ==='CLICK'){
+        this.body = '您点了菜单: '+message.EventKey
+    }
+    else if (message.Event ==='VIEW'){
+        this.body = '您点了菜单中的链接: '+message.EventKey
+    }
 }
-else{
+else if(message.MsgType ==='text'){
+    var content = message.Content
+    var reply = message.Content + ' 没用您输入的这个选项 请输入1，2或者3' 
+    if(content ==='1'){
+        reply = 'Take a simple idea and take it serisouly'
+    }
+    else if(content ==='2'){
+        reply = 'The best preparation for tomorrow is doing your best today'
+    }
+    else if(content ==='3'){
+        reply = 'A negative mind will never give you a positive life'
+    }
+    else if(content ==='4'){
+        reply = [{
+            title:'NodeJS 微信开发',
+            description:'It is fun',
+            picurl:'http://www.xiaoyikeji.cn/wp-content/uploads/2017/05/timg.png',
+            url:'https://nodejs.org'
+        }]
+    }
+    else{
+        this.body = "dsfsadf" 
+    }
+    this.body = reply;
+}
 
-}
 yield next
 
 }

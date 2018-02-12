@@ -12,8 +12,20 @@ var tpl = heredoc(function(){/*
      
     <MsgType><![CDATA[<%=msgType%>]]></MsgType>
    <% if (msgType ==='text'){%>
-    <Content><![CDATA[<%=content%>]]></Content>
-    <%}%>
+ <Content><![CDATA[<%=content%>]]></Content>
+   <%} else if (msgType ==='news'){%>
+  <ArticleCount><%=content.length%></ArticleCount>
+<Articles>
+<% content.forEach(function(item){%>
+<item>
+<Title><![CDATA[<%=item.title%>]]></Title> 
+<Description><![CDATA[<%=item.description%>]]></Description>
+<PicUrl><![CDATA[<%=item.picurl%>]]></PicUrl>
+<Url><![CDATA[<%=item.url%>]]></Url>
+</item>
+<%})%>
+</Articles>
+<%}%>
     </xml>
 
 */})
