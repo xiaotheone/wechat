@@ -41,9 +41,7 @@ else if(message.MsgType ==='text'){
             url:'https://nodejs.org'
         }]
     }
-    else{
-        this.body = "dsfsadf" 
-    }
+    
     this.body = reply;
 }
 
