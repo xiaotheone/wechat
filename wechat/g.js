@@ -3,10 +3,10 @@
 'use strict'
 var sha1 = require('sha1')
 var getRawBody = require('raw-body')
-var wechat = require('./wechat')
 var util = require('./util')
-module.exports = function(opts){
-var wechat_data = new wechat (opts)
+var wechat = require('./wechat')
+module.exports = function(opts,handler){
+ wechat = new wechat (opts)
 
 return function *(next){
     var that = this
@@ -40,10 +40,11 @@ else if (this.method ==='POST'){
    var message = util.formatMessage(content.xml)    
    console.log(message)
     
-    // this.weixin = message
-    // yield handler.call(this,next)
-    // wechat.reply.call(this)
-   
+    this.weixin = message
+    yield handler.call(this,next)
+    
+    wechat.reply.call(this)
+  
 }
 }
 }

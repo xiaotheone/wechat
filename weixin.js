@@ -5,7 +5,7 @@ var message = this.weixin
 
 if(message.MsgType ==='event'){
     if(message.Event ==='subscribe'){
-        if(message.EventKey){
+        if(message.EventKey===''){
             console.log('扫二维码进来' + message.EventKey + ' '+ message.ticket)
         }
         this.body = '欢迎订阅 😄'
@@ -15,9 +15,9 @@ if(message.MsgType ==='event'){
         this.body = ''
     }
 }
-if(message.MsgType ==='text'){
-        
-        this.body = '您输入了'+message.content
+else{
+
 }
+yield next
 
 }
