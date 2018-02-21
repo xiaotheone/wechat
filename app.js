@@ -11,6 +11,7 @@ var wechat_file = path.join(__dirname,'./config/wechat.txt')
 var app = new Koa()
 app.use(wechat(config.wechat,weixin.reply))
 
+var port = process.env.PORT || 8080
 
-app.listen(1234)
-console.log('listening 1234')
+app.listen(port)
+console.log('listening 8080')

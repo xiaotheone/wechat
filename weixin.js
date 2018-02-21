@@ -23,26 +23,29 @@ if(message.MsgType ==='event'){
 }
 else if(message.MsgType ==='text'){
     var content = message.Content
-    var reply = message.Content + ' 没用您输入的这个选项 请输入1，2或者3' 
+    var reply = ' 没用您输入的这个选项 : ' + message.Content + '请输入1，2或者3' 
     if(content ==='1'){
-        reply = 'Take a simple idea and take it serisouly'
+        this.body = 'Take a simple idea and take it serisouly'
     }
     else if(content ==='2'){
-        reply = 'The best preparation for tomorrow is doing your best today'
+        this.body = 'The best preparation for tomorrow is doing your best today'
     }
     else if(content ==='3'){
-        reply = 'A negative mind will never give you a positive life'
+        this.body = 'A negative mind will never give you a positive life'
     }
     else if(content ==='4'){
-        reply = [{
+        this.body = [{
             title:'NodeJS 微信开发',
             description:'It is fun',
             picurl:'http://www.xiaoyikeji.cn/wp-content/uploads/2017/05/timg.png',
             url:'https://nodejs.org'
         }]
     }
+    else{
+        this.body = reply;
+    }
     
-    this.body = reply;
+    
 }
 
 yield next

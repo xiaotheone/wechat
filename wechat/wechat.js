@@ -51,10 +51,10 @@ function Wechat(opts){
    }
    }
    Wechat.prototype.reply = function(){
-        
-     if(this.body === ''){
-         return
-     }else{
+    //when user enter some message that we have not implement. do nothing.
+     //if(this.body === ''){
+         //return
+     //}else{
        var content = this.body
        var message = this.weixin
 
@@ -62,7 +62,7 @@ function Wechat(opts){
        this.status = 200
        this.type = 'application/xml'
        this.body = xml
-     }
+    // }
    }
    
    Wechat.prototype.updataAccessToken = function(){
